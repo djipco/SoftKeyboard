@@ -1,0 +1,47 @@
+-source-path src
+-source-path ${workspace_loc}/Libraries/Starling
+-source-path ${workspace_loc}/Libraries/Feathers
+
+-doc-classes 	cc.cote.feathers.softkeyboard.CharCode
+			cc.cote.feathers.softkeyboard.Key
+			cc.cote.feathers.softkeyboard.KeyRow
+			cc.cote.feathers.softkeyboard.SoftKeyboard
+			cc.cote.feathers.softkeyboard.KeyEvent
+			cc.cote.feathers.softkeyboard.keycollections.AllLatinKeyVariants
+			cc.cote.feathers.softkeyboard.keycollections.FrenchKeyVariants
+			cc.cote.feathers.softkeyboard.keycollections.SymbolKeyVariants
+			cc.cote.feathers.softkeyboard.layouts.Layout
+			cc.cote.feathers.softkeyboard.layouts.Azerty
+			cc.cote.feathers.softkeyboard.layouts.AzertyFr
+			cc.cote.feathers.softkeyboard.layouts.AzertySwitch
+			cc.cote.feathers.softkeyboard.layouts.AzertySwitchFr
+			cc.cote.feathers.softkeyboard.layouts.EmailNumbersSymbolsSwitch
+			cc.cote.feathers.softkeyboard.layouts.EmailSwitch
+			cc.cote.feathers.softkeyboard.layouts.Layout
+			cc.cote.feathers.softkeyboard.layouts.NumbersSymbols
+			cc.cote.feathers.softkeyboard.layouts.NumbersSymbolsSwitch
+			cc.cote.feathers.softkeyboard.layouts.NumPad
+			cc.cote.feathers.softkeyboard.layouts.NumPadOperators
+			cc.cote.feathers.softkeyboard.layouts.Qwerty
+			cc.cote.feathers.softkeyboard.layouts.QwertyFr
+			cc.cote.feathers.softkeyboard.layouts.QwertySwitch
+			cc.cote.feathers.softkeyboard.layouts.QwertySwitchFr
+
+-exclude-dependencies
+-output doc 
+
+-main-title "SoftKeyboard 1.0a rev4 API Reference"
+-window-title "SoftKeyboard 1.0a rev4 API Reference"
+-footer "&#169; 2013, <a href='http://cote.cc'>Jean-Philippe Côté</a>"
+
+-date-in-footer
+-left-frameset-width 310
+
+-metadata.creator "Jean-Philippe Côté" 
+-metadata.description "SoftKeyboard is a Feathers custom component that allow the creation of virtual on-screen keyboards for data entry on devices without a physical keyboard."
+
+-package cc.cote.feathers.softkeyboard "This is the main package of the SoftKeyboard component."
+-package cc.cote.feathers.softkeyboard.keycollections "This sub-package contains enumeration classes that define key variants collections to be used in keyboard layouts."
+-package cc.cote.feathers.softkeyboard.layouts "This sub-package contains various keyboard layouts that can be used to create a SoftKeyboard object."
+
+-lenient
