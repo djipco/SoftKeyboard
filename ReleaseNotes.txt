@@ -1,0 +1,8 @@
+
+Release notes
+
+********************************************************************************
+1.0a rev5
+
+	- Corrected a bug where "real" keyboard events would interfere with 
+	  SoftKeyboard's KeyEvent.

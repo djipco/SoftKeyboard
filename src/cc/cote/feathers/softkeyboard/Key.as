@@ -42,7 +42,7 @@ package cc.cote.feathers.softkeyboard
 	 * 
 	 * @eventType cc.cote.feathers.softkeyboard.KeyEvent.KEY_DOWN
 	 */
-	[Event(name="keyDown",type="cc.cote.feathers.softkeyboard.KeyEvent")]
+	[Event(name="cc.cote.feathers.softkeyboard.KeyEvent.keyDown",type="cc.cote.feathers.softkeyboard.KeyEvent")]
 	
 	/**
 	 * Dispatched when a the key is released. The release position must be above the key that was 
@@ -51,14 +51,14 @@ package cc.cote.feathers.softkeyboard
 	 * 
 	 * @eventType cc.cote.feathers.softkeyboard.KeyEvent.KEY_UP
 	 */
-	[Event(name="keyUp",type="cc.cote.feathers.softkeyboard.KeyEvent")]
+	[Event(name="cc.cote.feathers.softkeyboard.KeyEvent.keyUp",type="cc.cote.feathers.softkeyboard.KeyEvent")]
 
 	/**
 	 * Dispatched when the variants for a key should be displayed.
 	 * 
 	 * @eventType cc.cote.feathers.softkeyboard.KeyEvent.SHOW_VARIANTS
 	 */
-	[Event(name="showVariants",type="cc.cote.feathers.softkeyboard.KeyEvent")]
+	[Event(name="cc.cote.feathers.softkeyboard.KeyEvent.showVariants",type="cc.cote.feathers.softkeyboard.KeyEvent")]
 	
 	/**
 	 * The <code>Key</code> class creates individual soft-keyboard keys to use in keyboard 

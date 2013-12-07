@@ -33,7 +33,7 @@ package cc.cote.feathers.softkeyboard
 	 * 
 	 * @eventType cc.cote.feathers.softkeyboard.KeyEvent.KEY_DOWN
 	 */
-	[Event(name="keyDown",type="cc.cote.feathers.softkeyboard.KeyEvent")]
+	[Event(name="cc.cote.feathers.softkeyboard.KeyEvent.keyDown",type="cc.cote.feathers.softkeyboard.KeyEvent")]
 
 	/**
 	 * Dispatched when an on-screen key is released. The release must be above the key that was 
@@ -41,7 +41,7 @@ package cc.cote.feathers.softkeyboard
 	 *
 	 * @eventType cc.cote.feathers.softkeyboard.KeyEvent.KEY_UP
 	 */
-	[Event(name="keyUp",type="cc.cote.feathers.softkeyboard.KeyEvent")]
+	[Event(name="cc.cote.feathers.softkeyboard.KeyEvent.keyUp",type="cc.cote.feathers.softkeyboard.KeyEvent")]
 	
 	/**
 	 * This class allows the creation of virtual on-screen keyboards. Various types of keyboard 
@@ -119,7 +119,7 @@ package cc.cote.feathers.softkeyboard
 	{
 		
 		/** Version of this SoftKeyboard library */
-		public const VERSION:String = '1.0a rev4';
+		public const VERSION:String = '1.0a rev5';
 		
 		/** The background to use for the SoftKeyboard. */
 		public var backgroundSkin:DisplayObject;

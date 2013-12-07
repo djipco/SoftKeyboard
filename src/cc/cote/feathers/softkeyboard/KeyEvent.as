@@ -38,25 +38,25 @@ package cc.cote.feathers.softkeyboard
 		 * The <code>KEY_UP</code> constant defines the value of the <code>type</code> property of a 
 		 * <code>keyUp</code> event object.
 		 * 
-		 * @eventType keyUp
+		 * @eventType cc.cote.feathers.softkeyboard.KeyEvent.keyUp
 		 */
-		public static const KEY_UP:String = "keyUp";
+		public static const KEY_UP:String = "cc.cote.feathers.softkeyboard.KeyEvent.keyUp";
 		
 		/** 
 		 * The <code>KEY_DOWN</code> constant defines the value of the <code>type</code> property of 
 		 * a <code>keyDown</code> event object.
 		 * 
-		 * @eventType keyDown
+		 * @eventType cc.cote.feathers.softkeyboard.KeyEvent.keyDown
 		 */
-		public static const KEY_DOWN:String = "keyDown";
+		public static const KEY_DOWN:String = "cc.cote.feathers.softkeyboard.KeyEvent.keyDown";
 		
 		/** 
 		 * The <code>SHOW_VARIANTS</code> constant defines the value of the <code>type</code> 
 		 * property of a <code>showVariants</code> event object.
 		 * 
-		 * @eventType showVariants
+		 * @eventType cc.cote.feathers.softkeyboard.KeyEvent.showVariants
 		 */
-		public static const SHOW_VARIANTS:String = "showVariants";
+		public static const SHOW_VARIANTS:String = "cc.cote.feathers.softkeyboard.KeyEvent.showVariants";
 		
 		private var _char:String;
 		private var _charCode:uint;
