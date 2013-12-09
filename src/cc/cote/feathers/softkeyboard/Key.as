@@ -265,7 +265,7 @@ package cc.cote.feathers.softkeyboard
 			
 			// If a TextFormat has been specified in the theme, use it. Otherwise, stick to the 
 			// Feathers defaults.
-			if (textFormat) _label.textRendererProperties.textFormat = textFormat;
+			if (this._textFormat) _label.textRendererProperties.textFormat = this._textFormat;
 			
 			// Now that everything is ready, listen to touch events
 			addEventListener(TouchEvent.TOUCH, _onTouch);
@@ -662,14 +662,15 @@ package cc.cote.feathers.softkeyboard
 			return (type != CHARACTER_KEY);
 		}
 		
+		private var _textFormat:TextFormat;
 		/** The current TextFormat object used for the key's label rendering */
 		public function get textFormat():TextFormat {
-			return _label.textRendererProperties.textFormat;
+			return this._textFormat;
 		}
 	
 		/** @private */
 		public function set textFormat(value:TextFormat):void {
-			_label.textRendererProperties.textFormat = value;
+			this._textFormat = _label.textRendererProperties.textFormat = value;
 		}
 
 		/** Indicates whether the key is a variant key (true) or a primary key (false) */
