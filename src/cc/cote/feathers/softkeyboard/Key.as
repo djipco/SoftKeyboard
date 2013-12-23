@@ -458,7 +458,7 @@ package cc.cote.feathers.softkeyboard
 				if ( !hitTest(touchPosInOriginalKeySpace, true) ) return;
 				
 				// Trigger event
-				changeState(HOVER_STATE);
+				changeState(UP_STATE);
 				_triggerEvent(this, KeyEvent.KEY_UP);
 				
 			}
