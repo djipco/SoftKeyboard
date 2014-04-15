@@ -211,30 +211,45 @@ package cc.cote.feathers.softkeyboard
 				for each (var k:Key in variants) k.isVariant = true;
 			}
 
-			// If no label has been specified, use the character as the label (if printable and 
-			// visible)
+			// Create the label and name it so it can be specifically styled through a theme
 			_label = new Label();
-			if (label) {
+			_label.nameList.add('softkeyboard-key-label');
+			
+			// Define the label. If no label has been specified, use the character as the label (if 
+			// printable and visible). By the same token, assign names to the individual label for
+			// custom skinning.
+			if (label != null) {
 				_label.text = label;
+				if (label == '') {
+					_label.nameList.add('SPACE');
+				} else {
+					_label.nameList.add(label.replace(' ', '_'));
+				}
 			} else if (isPrintable && isVisible) {
 				_character = String.fromCharCode(_charCode);
 				_label.text = character;
+				_label.nameList.add(character);
 			} else if (isPrintable) {
 				_character = String.fromCharCode(_charCode);
 			}
 			
+			
 			// A string representation of the charCode is added to the nameList so keys can be 
 			// styled individually (if needed). 
 			nameList.add(String(charCode));
+			_label.nameList.add('charCode' + String(charCode));
 			
 			// Modify the name list to reflect the fact that a key has variants
-			if (variants) nameList.add('hasVariants');
+			if (variants) {
+				nameList.add('hasVariants');
+				_label.nameList.add('hasVariants');
+			}
 			
 			// If the key is the special SPACER type, hide it
 			if (_charCode == CharCode.SPACER) visible = false;
 			
 		}
-		
+
 		/** @private */
 		override protected function initialize():void {
 			
@@ -691,8 +706,7 @@ package cc.cote.feathers.softkeyboard
 		public function get variantsContainer():Sprite {
 			return _variantsContainer;
 		}
-
-
+		
 	}
 	
 }
