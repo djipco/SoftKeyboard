@@ -13,6 +13,7 @@ package
 	import cc.cote.feathers.softkeyboard.SoftKeyboard;
 	
 	import feathers.controls.Callout;
+	import feathers.controls.Label;
 	import feathers.controls.text.TextFieldTextRenderer;
 	import feathers.core.DisplayListWatcher;
 	import feathers.core.FeathersControl;
@@ -124,20 +125,18 @@ package
 				return tfr;
 			};
 			
-			// Assign skinning initializers for the 3 elements that can be skinned : SoftKeyboard 
-			// (the overall keyboard), Key (each individual keys) and Callout (the key variants pop-
-			// up).
+			// Assign skinning initializers for the 4 elements that can be skinned : SoftKeyboard 
+			// (the overall keyboard), Key (each individual key), Key label (only the label 
+			// belonging to a SoftKeyboard Key object) and Callout (the key variants pop-up).
 			setInitializerForClass(SoftKeyboard, _softKeyboard);
 			setInitializerForClass(Key, _key);
+			setInitializerForClass(Label, _softkeyboardKeyLabel, Key.SOFTKEYBOARD_KEY_LABEL);
 			setInitializerForClass(Callout, _callout);
 			
 		}
 		
 		/** Initializer for the Key subcomponent */
 		private function _key(k:Key):void {
-			
-			// Assign key text format 
-			k.textFormat = keyLabelTextFormat;
 			
 			// Assign regular key skins
 			k.regularKeyUpSkin = Theme.getScale9Image(SoftKeyboardKeySkinRegularUp, 5, 5);
@@ -164,6 +163,17 @@ package
 				k.icon = Theme.getImage(SoftKeyboardIconCapsLock);
 				k.selectedIcon = Theme.getImage(SoftKeyboardIconCapsLockSelected);
 			}
+			
+		}
+		
+		private function _softkeyboardKeyLabel(l:Label):void {
+
+			l.textRendererProperties.textFormat = keyLabelTextFormat;
+			
+			// Example: if you want to style the letter 'M' differently
+//			if (l.nameList.contains('M')) {
+//				l.textRendererProperties.textFormat = new TextFormat('_sans', 22, 0xFF0000);
+//			}
 			
 		}
 		
