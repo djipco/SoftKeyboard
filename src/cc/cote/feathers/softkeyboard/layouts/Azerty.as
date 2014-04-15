@@ -1,18 +1,12 @@
 /*
 
-Copyright (c) 2013, Jean-Philippe Côté (jp@cote.cc)
+Copyright (c) 2013-2014, Jean-Philippe Côté (www.cote.cc)
 All rights reserved.
-
-This library can be used freely for non-profit purposes. For-profit usage requires written 
-approval or a donation (see http://cote.cc/projects/softkeyboard). The donation amount is set to 
-whatever the user deems fair.
-
-Even though this library is open source, it cannot be redistributed or modified without prior 
-consent from its author. Comments and suggestions are always encouraged.
 
 This library is provided "as is" with no guarantees whatsoever. Use it at your own risk.
 
 */
+
 package cc.cote.feathers.softkeyboard.layouts
 {
 	import cc.cote.feathers.softkeyboard.CharCode;
