@@ -119,7 +119,7 @@ package cc.cote.feathers.softkeyboard
 	{
 		
 		/** Version of this SoftKeyboard library */
-		public const VERSION:String = '1.0a rev7';
+		public const VERSION:String = '1.0a rev8';
 		
 		/** The background to use for the SoftKeyboard. */
 		public var backgroundSkin:DisplayObject;

@@ -61,8 +61,14 @@ package cc.cote.feathers.softkeyboard
 	
 	/**
 	 * The <code>Key</code> class creates individual soft-keyboard keys to use in keyboard 
-	 * <code>Layouts</code> and key collections. <code>Key</code> objects can be skinned through the
-	 * standard use of a Feathers theme.
+	 * <code>Layouts</code> and key collections. 
+	 * 
+	 * <p>Both the key and its label have several tokens in their <code>nameList</code> property to 
+	 * facilitate skinning of individual keys. First, they have a <code>charCodeXX</code> token 
+	 * where <code>XX</code> is the character code. Second, their label's text is also a token in 
+	 * their <code>nameList</code>. Finally, when appropriate, they will have the 
+	 * <code>hasVariant</code> token in their <code>nameList</code> to identify keys with 
+	 * variants.</p>
 	 * 
 	 * @see cc.cote.feathers.softkeyboard.layouts
 	 * @see cc.cote.feathers.softkeyboard.keycollections
@@ -226,13 +232,16 @@ package cc.cote.feathers.softkeyboard
 				_label.text = label;
 				if (label == '') {
 					_label.nameList.add('SPACE');
+					nameList.add('SPACE');
 				} else {
 					_label.nameList.add(label.replace(' ', '_'));
+					nameList.add(label.replace(' ', '_'));
 				}
 			} else if (isPrintable && isVisible) {
 				_character = String.fromCharCode(_charCode);
 				_label.text = character;
 				_label.nameList.add(character);
+				nameList.add(character);
 			} else if (isPrintable) {
 				_character = String.fromCharCode(_charCode);
 			}
@@ -240,7 +249,7 @@ package cc.cote.feathers.softkeyboard
 			
 			// A string representation of the charCode is added to the nameList so keys can be 
 			// styled individually (if needed). 
-			nameList.add(String(charCode));
+			nameList.add('charCode' + String(charCode));
 			_label.nameList.add('charCode' + String(charCode));
 			
 			// Modify the name list to reflect the fact that a key has variants

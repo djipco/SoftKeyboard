@@ -14,16 +14,19 @@ package
 	
 	import feathers.controls.Callout;
 	import feathers.controls.Label;
+	import feathers.controls.text.BitmapFontTextRenderer;
 	import feathers.controls.text.TextFieldTextRenderer;
 	import feathers.core.DisplayListWatcher;
 	import feathers.core.FeathersControl;
 	import feathers.core.ITextRenderer;
 	import feathers.display.Scale9Image;
+	import feathers.text.BitmapFontTextFormat;
 	import feathers.textures.Scale9Textures;
 	
 	import starling.display.DisplayObject;
 	import starling.display.DisplayObjectContainer;
 	import starling.display.Image;
+	import starling.text.BitmapFont;
 	import starling.textures.Texture;
 	
 	public class Theme extends DisplayListWatcher
@@ -93,24 +96,16 @@ package
 		public static const SoftKeyboardGlobalBackground:Class;
 		
 		/**
-		 * Define a text format to use for the key labels.
+		 * Those two assets will only be used if you uncomment the BitmapFontTextRenderer examples 
+		 * below (SCENARIO 2).
 		 */
-		public var keyLabelTextFormat:TextFormat = new TextFormat(
-			'_sans', 				// font
-			16,						// size (in pixels)
-			0xFFFFFF,		 		// color
-			true, 					// bold
-			false, 					// italic
-			false, 					// underline
-			null, 					// url
-			null, 					// target window (html)
-			TextFormatAlign.CENTER,	// alignement
-			null, 					// left margin
-			null, 					// right margin
-			null, 					// indent
-			null 					// leading (extra space between lines)
-		);
+		[Embed(source="assets/MarkerFelt.png")]
+		public static const FONT_BITMAP:Class;
 		
+		[Embed(source="assets/MarkerFelt-XML.fnt", mimeType="application/octet-stream")]
+		public static const FONT_XML:Class;
+		
+
 		/** 
 		 * Instantiates a new feathers theme which will be actively monitoring the Starling stage 
 		 * and skinning components as they are added to it.
@@ -119,11 +114,23 @@ package
 			
 			super(root as DisplayObjectContainer);
 			
-			// Here we use the TextFieldTextRenderer but you could also use the BitmapTextRenderer
+			// SCENARIO 1: Use a TextFieldTextRenderer
 			FeathersControl.defaultTextRendererFactory = function():ITextRenderer {
-				var tfr:TextFieldTextRenderer = new TextFieldTextRenderer();
-				return tfr;
+				var tftr:TextFieldTextRenderer = new TextFieldTextRenderer();
+				tftr.textFormat = new TextFormat('_sans', 16, 0xFFFFFF,	true);
+				tftr.textFormat.align = TextFormatAlign.CENTER
+				return tftr;
 			};
+			
+			// SCENARIO 2: Use a BitmapFontTextRenderer. This will use the font png and xml embedded
+			// above.
+//			FeathersControl.defaultTextRendererFactory = function():ITextRenderer {
+//				var bmf:BitmapFont = new BitmapFont(Theme.getTexture(FONT_BITMAP), XML(new FONT_XML()));
+//				var bftr:BitmapFontTextRenderer = new BitmapFontTextRenderer();
+//				bftr.textFormat = new BitmapFontTextFormat(bmf, 24);
+//				bftr.textFormat.align = TextFormatAlign.CENTER;
+//				return bftr;
+//			};
 			
 			// Assign skinning initializers for the 4 elements that can be skinned : SoftKeyboard 
 			// (the overall keyboard), Key (each individual key), Key label (only the label 
@@ -168,8 +175,6 @@ package
 		
 		private function _softkeyboardKeyLabel(l:Label):void {
 
-			l.textRendererProperties.textFormat = keyLabelTextFormat;
-			
 			// Example: if you want to style the letter 'M' differently
 //			if (l.nameList.contains('M')) {
 //				l.textRendererProperties.textFormat = new TextFormat('_sans', 22, 0xFF0000);
@@ -240,9 +245,11 @@ package
 		 * @param name Texture name
 		 * @param rect Stretching rectangle
 		 */
-		public static function getScale9Image(source:Class, 
-											  staticWidth:Number = 25, 
-											  staticHeight:Number = 25):Scale9Image {
+		public static function getScale9Image(
+			source:Class, 
+			staticWidth:Number = 25, 
+			staticHeight:Number = 25
+		):Scale9Image {
 			
 			var texture:Texture = Theme.getTexture(source);
 			

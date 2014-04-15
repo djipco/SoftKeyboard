@@ -27,6 +27,7 @@ package {
 			// Instantiate Feathers theme
 			new Theme(stage);
 			
+			
 			// Instantiate a keyboard with a single layout
 			//var l:Layout = new Qwerty();
 			//var l:Layout = new AzertyFr();
