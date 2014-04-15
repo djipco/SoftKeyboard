@@ -20,7 +20,6 @@ package cc.cote.feathers.softkeyboard
 	import flash.display.Shape;
 	import flash.events.TimerEvent;
 	import flash.geom.Point;
-	import flash.text.TextFormat;
 	import flash.text.engine.TypographicCase;
 	import flash.ui.Keyboard;
 	import flash.utils.Timer;
@@ -70,6 +69,11 @@ package cc.cote.feathers.softkeyboard
 	 */
 	public class Key extends FeathersControl
 	{
+		/**
+		 * Constant associated with the text representation of the label's name as used in the 
+		 * label's nameList property (for theming purposes). 
+		 */
+		public static const SOFTKEYBOARD_KEY_LABEL:String = 'softkeyboard-key-label';
 		
 		/** Constant associated with the text representation of the key up state */
 		public static const UP_STATE:String = 'Up';
@@ -213,7 +217,7 @@ package cc.cote.feathers.softkeyboard
 
 			// Create the label and name it so it can be specifically styled through a theme
 			_label = new Label();
-			_label.nameList.add('softkeyboard-key-label');
+			_label.nameList.add(SOFTKEYBOARD_KEY_LABEL);
 			
 			// Define the label. If no label has been specified, use the character as the label (if 
 			// printable and visible). By the same token, assign names to the individual label for
@@ -277,10 +281,6 @@ package cc.cote.feathers.softkeyboard
 			}
 			addChild(_label);
 			//if (variants) addChild(_variantsContainer);
-			
-			// If a TextFormat has been specified in the theme, use it. Otherwise, stick to the 
-			// Feathers defaults.
-			if (this._textFormat) _label.textRendererProperties.textFormat = this._textFormat;
 			
 			// Now that everything is ready, listen to touch events
 			addEventListener(TouchEvent.TOUCH, _onTouch);
@@ -677,17 +677,6 @@ package cc.cote.feathers.softkeyboard
 			return (type != CHARACTER_KEY);
 		}
 		
-		private var _textFormat:TextFormat;
-		/** The current TextFormat object used for the key's label rendering */
-		public function get textFormat():TextFormat {
-			return this._textFormat;
-		}
-	
-		/** @private */
-		public function set textFormat(value:TextFormat):void {
-			this._textFormat = _label.textRendererProperties.textFormat = value;
-		}
-
 		/** Indicates whether the key is a variant key (true) or a primary key (false) */
 		public function get isVariant():Boolean {
 			return _isVariant;
@@ -705,6 +694,16 @@ package cc.cote.feathers.softkeyboard
 
 		public function get variantsContainer():Sprite {
 			return _variantsContainer;
+		}
+
+		/** The Label object used by this key */
+		public function get label():Label {
+			return _label;
+		}
+		
+		/** @private */
+		public function set label(value:Label):void {
+			_label = value;
 		}
 		
 	}
