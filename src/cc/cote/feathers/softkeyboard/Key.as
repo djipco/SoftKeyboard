@@ -613,8 +613,13 @@ package cc.cote.feathers.softkeyboard
 			return _character;
 		}
 
-		/** The character code of the key. */
-		public function get charCode():uint {
+		/**
+		 * The character code of the key (some special keys have negative char codes such as the 
+		 * SWITCH_LAYOUT key (-1), the DONE key (-2) and the SPACER key (-3).
+		 * 
+		 * @see cc.cote.feathers.softkeyboard.CharCode
+		 */
+		public function get charCode():int {
 			return _charCode;
 		}
 
