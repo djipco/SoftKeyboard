@@ -9,6 +9,9 @@ This library is provided "as is" with no guarantees whatsoever. Use it at your o
 
 package cc.cote.feathers.softkeyboard
 {
+	import feathers.controls.LayoutGroup;
+	import feathers.layout.HorizontalLayout;
+	
 	import starling.display.Sprite;
 
 	/**
@@ -18,6 +21,7 @@ package cc.cote.feathers.softkeyboard
 	 * @see cc.cote.feathers.softkeyboard.Key
 	 */
 	public class KeyRow extends Sprite
+//	public class KeyRow extends LayoutGroup
 	{
 		/** A vector of all <code>Key</code> objects in the <code>KeyRow</code>. */
 		public var keys:Vector.<Key>;
@@ -44,6 +48,10 @@ package cc.cote.feathers.softkeyboard
 				relativeWidth += key.relativeWidth;
 			}
 			relativeWidth += (length - 1) * _gap;
+			
+//			var lay:HorizontalLayout = new HorizontalLayout();
+//			lay.gap = _gap;
+//			layout = lay;
 			
 		}
 		

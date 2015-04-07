@@ -186,10 +186,10 @@ package
 		public function _callout(c:Callout):void {
 			c.backgroundSkin = Theme.getScale9Image(SoftKeyboardCalloutBackground, 15, 15);
 			
-			c.topArrowSkin = Theme.getScale9Image(SoftKeyboardCalloutTopArrow, 15, 15);
-			c.rightArrowSkin = Theme.getScale9Image(SoftKeyboardCalloutRightArrow, 15, 15);
-			c.bottomArrowSkin = Theme.getScale9Image(SoftKeyboardCalloutBottomArrow, 15, 15);
-			c.leftArrowSkin = Theme.getScale9Image(SoftKeyboardCalloutLeftArrow, 15, 15);
+			c.topArrowSkin = Theme.getImage(SoftKeyboardCalloutTopArrow);
+			c.rightArrowSkin = Theme.getImage(SoftKeyboardCalloutRightArrow);
+			c.bottomArrowSkin = Theme.getImage(SoftKeyboardCalloutBottomArrow);
+			c.leftArrowSkin = Theme.getImage(SoftKeyboardCalloutLeftArrow);
 			
 			c.paddingLeft = 8;
 			c.paddingRight = 12;
